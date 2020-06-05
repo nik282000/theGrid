@@ -84,7 +84,7 @@ void drawTile(int x0, int y0, float size){
   tiles[r].scale(size); //apply size scale
   if((r == 0) || (r == 6)){ // tiles 0 and 6 can be rotated once by 90 degrees
     tiles[r].rotate(int(random(2)) * PI/2);
-  } else if(r == 3){ // tile 3 can be rotated four times by 90 degrees
+  } else if(r == 3){ // tile 3 can be rotated three times by 90 degrees
     tiles[r].rotate(int(random(4)) * PI/2);
   }
   shape(tiles[r]); //draw the tile!
@@ -105,14 +105,13 @@ void setup(){
   size(600, 600);
   colorMode(HSB, 360, 100, 100);
   background(0, 0, 90);
-  scale = 1;
   strokeWeight(2);
   noFill();
   makeTiles();
   theGrid(scale);
 }
 
-void mousePressed(){
+void mousePressed(){ //left click to refresh, right click to save
   if(mouseButton == LEFT){
     background(0, 0, 90);
     theGrid(scale);
